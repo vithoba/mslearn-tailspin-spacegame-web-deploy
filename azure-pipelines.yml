@@ -94,3 +94,17 @@ stages:
               azureSubscription: 'Resource Manager - Tailspin - Space Game'
               appName: '$(WebAppNameDev)'
               package: '$(Pipeline.Workspace)/drop/$(buildConfiguration)/*.zip'
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'Resource Manager - Tailspin - Space Game'
+    appType: 'webApp'
+    WebAppName: 'tailspin-space-game-web-dev-24129'
+- task: AzureRmWebAppDeployment@4
+  inputs:
+    ConnectionType: 'AzureRM'
+    azureSubscription: 'Resource Manager - Tailspin - Space Game'
+    appType: 'webApp'
+    WebAppName: 'tailspin-space-game-web-test-24129'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
+    packageForLinux: '$(System.DefaultWorkingDirectory)/**/*.zip'
